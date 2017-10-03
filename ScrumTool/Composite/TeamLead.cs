@@ -52,6 +52,13 @@ namespace ScrumTool.Composite
                 return Lead.Salary;
             }
         }
+        public int EmployeeNumber
+        {
+            get
+            {
+                return Lead.EmployeeNumber;
+            }
+        }
         #endregion
 
         public void Add(IEmployee employee)
