@@ -78,7 +78,7 @@ namespace ScrumTool
         }
 
         private void addToSelectedTeamleader_Click(object sender, RoutedEventArgs e)
-        {          
+        {
             var selectedLead = teamleaders.SelectedItem as TeamLead;
             if ((selectedLead.employeeList.Contains(Item)))
             {
@@ -103,11 +103,11 @@ namespace ScrumTool
             x.Remove(listOfEmployeesByTeamlead.SelectedItem as IEmployee);
         }
 
-        //private void TeamLeader_Btn_Click(object sender, RoutedEventArgs e)
-        //{
-        //    var x = (IEmployee)listOfEmployees.SelectedItem;
-        //    Employees.AddEmployee(new TeamLead(x));
-        //    Employees.RemoveEmployeeFromList(x);
-        //}
+        private void TeamLeader_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            //    var x = (IEmployee)listOfEmployees.SelectedItem;
+            //    Employees.AddEmployee(new TeamLead(x));
+            //    Employees.RemoveEmployeeFromList(x);
+        }
     }
 }
