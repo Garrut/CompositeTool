@@ -23,24 +23,32 @@ namespace ScrumTool
     public partial class MainWindow : Window
     {
         TeamLead lead;
+        TeamLead testLead;
+        TeamLead curItem;
 
         public MainWindow()
         {
             InitializeComponent();
 
             ObservableCollection<IEmployee> AllEmployeeList = new ObservableCollection<IEmployee>();
+            //ObservableCollection<TeamLead> AllTeamLeadsList = new ObservableCollection<TeamLead>();
             
+
             IEmployee Henk = new SoftwareEngineer("Henk", 54);
             IEmployee Gerard = new SoftwareEngineer("Gerard", 30);
             IEmployee Peter = new SoftwareEngineer("Peter", 28);
             IEmployee Pieter = new SoftwareArchitect("Pieter", 43);
-
-            AllEmployeeList.Add(Henk);
-            AllEmployeeList.Add(Gerard);
+            lead = new TeamLead(Henk);
+            testLead = new TeamLead(Gerard);
+            //AllEmployeeList.Add(Henk);
+            //AllEmployeeList.Add(Gerard);
             AllEmployeeList.Add(Pieter);
             AllEmployeeList.Add(Peter);
+            AllEmployeeList.Add(lead);
+            AllEmployeeList.Add(testLead);
 
-            lead = new TeamLead(Henk);
+            testLead.Add(Peter);
+            
             lead.Add(Gerard);
             lead.Add(Henk);
             lead.Add(Peter);
@@ -50,18 +58,16 @@ namespace ScrumTool
 
         private void listOfEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            IEmployee curItem;
 
-            // Get the currently selected item in the ListBox.
-            curItem = (IEmployee)listOfEmployees.SelectedItem;
-            if(curItem.Job  == "Team leader")
+            try
             {
-                listOfEmployeesByTeamlead.ItemsSource = lead.employeeList;
+                curItem = (TeamLead)listOfEmployees.SelectedItem;
+                listOfEmployeesByTeamlead.ItemsSource = curItem.employeeList;
             }
-            else
-            {
+            catch (InvalidCastException ) {
                 listOfEmployeesByTeamlead.ItemsSource = null;
             }
+           
 
           
         }
