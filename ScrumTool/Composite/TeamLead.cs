@@ -9,12 +9,16 @@ namespace ScrumTool.Composite
 {
     public class TeamLead : IEmployee
     {
+        AddEmployeeToList addLead = new AddEmployeeToList(Employees.AddEmployee);
+        
         public ObservableCollection<IEmployee> employeeList = new ObservableCollection<IEmployee>();
         public IEmployee Lead;
 
         public TeamLead(IEmployee lead)
         {
             Lead = lead;
+            Employees.RemoveEmployeeFromList(lead);
+            addLead(this);
         }
 
         #region Fields
