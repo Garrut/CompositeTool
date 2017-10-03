@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-    
+
 namespace ScrumTool
 {
     /// <summary>
@@ -25,9 +25,9 @@ namespace ScrumTool
     public partial class MainWindow : Window
     {
         ObservableCollection<IEmployee> AllEmployeeList = Employees.returnEmployees();
-        private TeamLead curItem;
-        private IEmployee Item;
-        private TeamLead selectedComboItem;
+        private TeamLead curItem = null;
+        private IEmployee Item = null;
+        private TeamLead selectedComboItem = null;
 
         public MainWindow()
         {
@@ -38,16 +38,18 @@ namespace ScrumTool
             SoftwareEngineer Peter = new SoftwareEngineer("Peter", 28);
             SoftwareArchitect Pieter = new SoftwareArchitect("Pieter", 43);
             TeamLead Jan = new TeamLead(new SoftwareArchitect("Jan", 50));
+            TeamLead Pierri = new TeamLead(new SoftwareArchitect("Pierri", 50));
             Jan.Add(Gerard);
 
             teamleaders.ItemsSource = AllEmployeeList.Where(x => x.GetType() == typeof(TeamLead));
-
             listOfEmployees.ItemsSource = AllEmployeeList;
         }
 
         private void listOfEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //item == curitem
             Item = (IEmployee)listOfEmployees.SelectedItem;
+
             try
             {
                 curItem = (TeamLead)listOfEmployees.SelectedItem;
@@ -63,32 +65,49 @@ namespace ScrumTool
 
         private void teamleaders_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
             try
             {
-                selectedComboItem = (TeamLead) teamleaders.SelectedItem;
+                selectedComboItem = (TeamLead)teamleaders.SelectedItem;
 
             }
             catch (InvalidCastException)
             {
-              
+
             }
         }
 
         private void addToSelectedTeamleader_Click(object sender, RoutedEventArgs e)
-        {
-            if(curItem == null && selectedComboItem != null && curItem != selectedComboItem)
+        {          
+            var selectedLead = teamleaders.SelectedItem as TeamLead;
+            if ((selectedLead.employeeList.Contains(Item)))
             {
-                selectedComboItem.Add(Item);
+                MessageBoxResult result = MessageBox.Show("This lead already contains selected employee");
+                return;
             }
-            else if (curItem == selectedComboItem)
+
+            if (selectedLead == Item)
             {
                 MessageBoxResult result = MessageBox.Show("A teamlead can't be added to his own team");
+                return;
             }
             else
             {
-                MessageBoxResult result = MessageBox.Show("Be aware to select all required fields");
+                selectedLead.Add(Item);
             }
         }
+
+        private void RmEmployeeFromGroup_Click(object sender, RoutedEventArgs e)
+        {
+            var x = (TeamLead)listOfEmployees.SelectedItem;
+            x.Remove(listOfEmployeesByTeamlead.SelectedItem as IEmployee);
+        }
+
+        //private void TeamLeader_Btn_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var x = (IEmployee)listOfEmployees.SelectedItem;
+        //    Employees.AddEmployee(new TeamLead(x));
+        //    Employees.RemoveEmployeeFromList(x);
+        //}
     }
 }

@@ -8,7 +8,7 @@
         Title="MainWindow" Height="550" Width="925">
     <Grid>
 
-        <ListBox x:Name="listOfEmployees"  Height="550" Width="200" HorizontalAlignment="Left" SelectionChanged="listOfEmployees_SelectionChanged" >
+        <ListBox x:Name="listOfEmployees" Width="200" HorizontalAlignment="Left" SelectionChanged="listOfEmployees_SelectionChanged" Margin="0,42,0,-31" >
             <ListBox.ItemTemplate>
                 <DataTemplate >
                     <StackPanel Orientation="Horizontal">
@@ -17,12 +17,11 @@
                         <TextBlock Text="{Binding Salary}"  />
                         <TextBlock Text=", "  />
                         <TextBlock Text="{Binding Job}"  />
-
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox x:Name="listOfEmployeesByTeamlead"  Height="550" Width="200" HorizontalAlignment="Right"  >
+        <ListBox x:Name="listOfEmployeesByTeamlead" Width="200" HorizontalAlignment="Right" Margin="0,51,0,-31"  >
             <!--ItemsSource="{Binding null}"-->
             <ListBox.ItemTemplate>
                 <DataTemplate >
@@ -32,12 +31,22 @@
                         <TextBlock Text="{Binding Salary}"  />
                         <TextBlock Text=", "  />
                         <TextBlock Text="{Binding Job}"  />
-
+                        <Button x:Name="RmEmployeeFromGroup" Content=" X " HorizontalAlignment="Right" Click="RmEmployeeFromGroup_Click"></Button>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="addToSelectedTeamleader" Content="Add to teamleader" HorizontalAlignment="Left" Click="addToSelectedTeamleader_Click" Margin="294,42,0,0" VerticalAlignment="Top" Width="114" Height="22"/>
-        <ComboBox x:Name="teamleaders" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="477,42,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="teamleaders_SelectionChanged"/>
+        <Button x:Name="addToSelectedTeamleader" Content="Add to teamleader" HorizontalAlignment="Left" Click="addToSelectedTeamleader_Click" Margin="205,222,0,0" VerticalAlignment="Top" Width="114" Height="22"/>
+        <ComboBox x:Name="teamleaders" DisplayMemberPath="Name" SelectedIndex="0" HorizontalAlignment="Left" Margin="324,222,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="teamleaders_SelectionChanged">
+        
+        </ComboBox>
+        <StackPanel HorizontalAlignment="Left" Height="175" Margin="205,42,0,0" VerticalAlignment="Top" Width="239">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="28" Width="229"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="28" Width="229"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="28" Width="229"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="28" Width="229"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="28" Width="229"/>
+        </StackPanel>
+        <Button x:Name="TeamLeader_Btn" Content="Make teamleader" HorizontalAlignment="Left" Margin="205,249,0,0" VerticalAlignment="Top" Width="114" Click="TeamLeader_Btn_Click"/>
     </Grid>
 </Window>
