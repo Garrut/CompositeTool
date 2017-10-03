@@ -10,7 +10,7 @@ namespace ScrumTool.Composite
     {
         public SoftwareArchitect(string name, int age) : base(name, "Software Architect", age, 3000)
         {
-
+           
         }
     }
 }
