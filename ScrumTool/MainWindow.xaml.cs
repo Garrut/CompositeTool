@@ -27,6 +27,7 @@ namespace ScrumTool
         ObservableCollection<IEmployee> AllEmployeeList = Employees.returnEmployees();
         ObservableCollection<TeamLead> AllTeamLeads = new ObservableCollection<TeamLead>();
         private TeamLead curItem;
+        private TeamLead selectedComboItem;
         
         
         public MainWindow()
@@ -41,9 +42,6 @@ namespace ScrumTool
             TeamLead Pieter1 = new TeamLead(Pieter);
             Pieter1.Add(Henk);
 
-
-
-            FillComboBox();
             listOfEmployees.ItemsSource = AllEmployeeList;
         }
 
@@ -59,21 +57,19 @@ namespace ScrumTool
             }          
         }
 
-        private void FillComboBox ()
-        {
-            foreach( var item in AllEmployeeList)
-            {
-                if(item.GetType() == typeof(TeamLead))
-                {
-                    AllTeamLeads.Add((TeamLead)item);
-                }
-            }
-            teamleaders.ItemsSource = AllTeamLeads;
-        }
 
         private void teamleaders_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
+            try
+            {
+                selectedComboItem = (TeamLead) teamleaders.SelectedItem;
 
+            }
+            catch (InvalidCastException)
+            {
+              
+            }
         }
     }
 }
