@@ -26,6 +26,7 @@ namespace ScrumTool
     {
         ObservableCollection<IEmployee> AllEmployeeList = Employees.returnEmployees();
         private TeamLead curItem;
+        private IEmployee Item;
         private TeamLead selectedComboItem;
 
         public MainWindow()
@@ -46,6 +47,7 @@ namespace ScrumTool
 
         private void listOfEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Item = (IEmployee)listOfEmployees.SelectedItem;
             try
             {
                 curItem = (TeamLead)listOfEmployees.SelectedItem;
@@ -53,6 +55,7 @@ namespace ScrumTool
             }
             catch (InvalidCastException)
             {
+                curItem = null;
                 listOfEmployeesByTeamlead.ItemsSource = null;
             }
         }
@@ -69,6 +72,22 @@ namespace ScrumTool
             catch (InvalidCastException)
             {
               
+            }
+        }
+
+        private void addToSelectedTeamleader_Click(object sender, RoutedEventArgs e)
+        {
+            if(curItem == null && selectedComboItem != null && curItem != selectedComboItem)
+            {
+                selectedComboItem.Add(Item);
+            }
+            else if (curItem == selectedComboItem)
+            {
+                MessageBoxResult result = MessageBox.Show("A teamlead can't be added to his own team");
+            }
+            else
+            {
+                MessageBoxResult result = MessageBox.Show("Be aware to select all required fields");
             }
         }
     }
