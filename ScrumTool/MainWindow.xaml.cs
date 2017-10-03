@@ -31,7 +31,6 @@ namespace ScrumTool
         public MainWindow()
         {
             InitializeComponent();
-            
             SoftwareEngineer Henk = new SoftwareEngineer("Henk", 54);
             SoftwareEngineer Gerard = new SoftwareEngineer("Gerard", 30);
             SoftwareEngineer Peter = new SoftwareEngineer("Peter", 28);
@@ -41,24 +40,31 @@ namespace ScrumTool
             Jan.Add(Gerard);
 
             listOfEmployees.ItemsSource = AllEmployeeList;
-            updateCombo();
         }
 
-        private void updateCombo()
+        private void setLabels(IEmployee selectedItem)
         {
-            teamleaders.ItemsSource = AllEmployeeList.Where(x => x.GetType() == typeof(TeamLead));
+            lbl_age.Content = selectedItem.Age;
+            lbl_name.Content = selectedItem.Name;
+            lbl_job.Content = selectedItem.Job;
+            lbl_emnum.Content = selectedItem.EmployeeNumber;
+            lbl_salary.Content = selectedItem.Salary;
+            lbl_teamlead.Content = selectedItem.GetType() == typeof(TeamLead) ? "Yes" : "No";
         }
 
         #region Form control actions
         private void listOfEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //item == curitem
+            teamleaders.ItemsSource = AllEmployeeList.Where(x => x.GetType() == typeof(TeamLead));
+
             selectedItem = (IEmployee)listOfEmployees.SelectedItem;
 
             if (selectedItem == null)
             {
                 return;
             }
+
+            setLabels(selectedItem);
 
             try
             {
@@ -108,7 +114,6 @@ namespace ScrumTool
             if(listOfEmployees.SelectedItem.GetType() != typeof(TeamLead))
             {
                 TeamLead n = new TeamLead((IEmployee)listOfEmployees.SelectedItem);
-                updateCombo();
             }
             else
             {
