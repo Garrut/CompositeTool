@@ -30,6 +30,7 @@ namespace ScrumTool
         {
             InitializeComponent();
             
+
             IEmployee Henk = new SoftwareEngineer("Henk", 54);
             IEmployee Gerard = new SoftwareEngineer("Gerard", 30);
             IEmployee Peter = new SoftwareEngineer("Peter", 28);
@@ -40,18 +41,16 @@ namespace ScrumTool
 
         private void listOfEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            IEmployee curItem;
 
-            // Get the currently selected item in the ListBox.
-            curItem = (IEmployee)listOfEmployees.SelectedItem;
-            if(curItem.Job  == "Team leader")
+            try
             {
-                listOfEmployeesByTeamlead.ItemsSource = lead.employeeList;
+                curItem = (TeamLead)listOfEmployees.SelectedItem;
+                listOfEmployeesByTeamlead.ItemsSource = curItem.employeeList;
             }
-            else
-            {
+            catch (InvalidCastException ) {
                 listOfEmployeesByTeamlead.ItemsSource = null;
             }
+           
 
           
         }
