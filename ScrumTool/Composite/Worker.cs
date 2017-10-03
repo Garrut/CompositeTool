@@ -8,7 +8,7 @@ namespace ScrumTool.Composite
 {
     public abstract class Worker : IEmployee
     {
-        public static Random ENumberGen;
+        public static Random ENumberGen = new Random();
 
         AddEmployeeToList addToEmployees = new AddEmployeeToList(Employees.AddEmployee);
 
