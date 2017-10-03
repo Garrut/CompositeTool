@@ -8,12 +8,16 @@ namespace ScrumTool.Composite
 {
     public abstract class Worker : IEmployee
     {
+        AddEmployeeToList addToEmployees = new AddEmployeeToList(Employees.AddEmployee);
+
         public Worker(string name, string job, int age, int salary)
         {
             this.Name = name;
             this.Job = job;
             this.Age = age;
             this.Salary = salary;
+
+            addToEmployees(this);
         }
 
         public string Name { get; set; }

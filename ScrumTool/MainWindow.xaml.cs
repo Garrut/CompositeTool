@@ -20,31 +20,21 @@ namespace ScrumTool
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+
     public partial class MainWindow : Window
     {
-        TeamLead lead;
-
+        ObservableCollection<IEmployee> AllEmployeeList = Employees.returnEmployees();
+        
         public MainWindow()
         {
             InitializeComponent();
-
-            ObservableCollection<IEmployee> AllEmployeeList = new ObservableCollection<IEmployee>();
             
             IEmployee Henk = new SoftwareEngineer("Henk", 54);
             IEmployee Gerard = new SoftwareEngineer("Gerard", 30);
             IEmployee Peter = new SoftwareEngineer("Peter", 28);
             IEmployee Pieter = new SoftwareArchitect("Pieter", 43);
-
-            AllEmployeeList.Add(Henk);
-            AllEmployeeList.Add(Gerard);
-            AllEmployeeList.Add(Pieter);
-            AllEmployeeList.Add(Peter);
-
-            lead = new TeamLead(Henk);
-            lead.Add(Gerard);
-            lead.Add(Henk);
-            lead.Add(Peter);
-           
+            
             listOfEmployees.ItemsSource = AllEmployeeList;
         }
 

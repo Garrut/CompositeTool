@@ -68,6 +68,7 @@
     <Compile Include="Composite\SoftwareArchitect.cs" />
     <Compile Include="Composite\SoftwareEngineer.cs" />
     <Compile Include="Composite\TeamLead.cs" />
+    <Compile Include="Employees.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
