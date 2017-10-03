@@ -26,13 +26,12 @@ namespace ScrumTool
     {
         ObservableCollection<IEmployee> AllEmployeeList = Employees.returnEmployees();
         private TeamLead curItem = null;
-        private IEmployee Item = null;
-        private TeamLead selectedComboItem = null;
+        private IEmployee selectedItem = null;
 
         public MainWindow()
         {
             InitializeComponent();
-
+            
             SoftwareEngineer Henk = new SoftwareEngineer("Henk", 54);
             SoftwareEngineer Gerard = new SoftwareEngineer("Gerard", 30);
             SoftwareEngineer Peter = new SoftwareEngineer("Peter", 28);
@@ -41,14 +40,25 @@ namespace ScrumTool
             TeamLead Pierri = new TeamLead(new SoftwareArchitect("Pierri", 50));
             Jan.Add(Gerard);
 
-            teamleaders.ItemsSource = AllEmployeeList.Where(x => x.GetType() == typeof(TeamLead));
             listOfEmployees.ItemsSource = AllEmployeeList;
+            updateCombo();
         }
 
+        private void updateCombo()
+        {
+            teamleaders.ItemsSource = AllEmployeeList.Where(x => x.GetType() == typeof(TeamLead));
+        }
+
+        #region Form control actions
         private void listOfEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //item == curitem
-            Item = (IEmployee)listOfEmployees.SelectedItem;
+            selectedItem = (IEmployee)listOfEmployees.SelectedItem;
+
+            if (selectedItem == null)
+            {
+                return;
+            }
 
             try
             {
@@ -62,38 +72,28 @@ namespace ScrumTool
             }
         }
 
-
         private void teamleaders_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            try
-            {
-                selectedComboItem = (TeamLead)teamleaders.SelectedItem;
-
-            }
-            catch (InvalidCastException)
-            {
-
-            }
         }
 
         private void addToSelectedTeamleader_Click(object sender, RoutedEventArgs e)
         {
             var selectedLead = teamleaders.SelectedItem as TeamLead;
-            if ((selectedLead.employeeList.Contains(Item)))
+            if ((selectedLead.employeeList.Contains(selectedItem)))
             {
                 MessageBoxResult result = MessageBox.Show("This lead already contains selected employee");
                 return;
             }
 
-            if (selectedLead == Item)
+            if (selectedLead == selectedItem)
             {
                 MessageBoxResult result = MessageBox.Show("A teamlead can't be added to his own team");
                 return;
             }
             else
             {
-                selectedLead.Add(Item);
+                selectedLead.Add(selectedItem);
             }
         }
 
@@ -105,9 +105,16 @@ namespace ScrumTool
 
         private void TeamLeader_Btn_Click(object sender, RoutedEventArgs e)
         {
-            //    var x = (IEmployee)listOfEmployees.SelectedItem;
-            //    Employees.AddEmployee(new TeamLead(x));
-            //    Employees.RemoveEmployeeFromList(x);
+            if(listOfEmployees.SelectedItem.GetType() != typeof(TeamLead))
+            {
+                TeamLead n = new TeamLead((IEmployee)listOfEmployees.SelectedItem);
+                updateCombo();
+            }
+            else
+            {
+                MessageBoxResult result = MessageBox.Show("Is already a teamlead!");
+            }
         }
+        #endregion
     }
 }
