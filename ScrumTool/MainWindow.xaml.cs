@@ -23,6 +23,7 @@ namespace ScrumTool
     public partial class MainWindow : Window
     {
         TeamLead lead = new TeamLead("jaap");
+        IEmployee curItem;
         public MainWindow()
         {
             InitializeComponent();
@@ -54,7 +55,7 @@ namespace ScrumTool
         private void listOfEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // Get the currently selected item in the ListBox.
-            IEmployee curItem = (IEmployee)listOfEmployees.SelectedItem;
+            curItem = (IEmployee)listOfEmployees.SelectedItem;
             if(curItem.jobRole == "Team leader")
             {
                 listOfEmployeesByTeamlead.ItemsSource = lead.employeeList;

@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScrumTool"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="550" Width="925">
     <Grid>
 
-        <ListBox x:Name="listOfEmployees"  Height="350" Width="200" HorizontalAlignment="Left" SelectionChanged="listOfEmployees_SelectionChanged" >
+        <ListBox x:Name="listOfEmployees"  Height="550" Width="200" HorizontalAlignment="Left" SelectionChanged="listOfEmployees_SelectionChanged" >
             <ListBox.ItemTemplate>
                 <DataTemplate >
                     <StackPanel Orientation="Horizontal">
@@ -22,7 +22,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox x:Name="listOfEmployeesByTeamlead"  Height="350" Width="200" HorizontalAlignment="Right"  >
+        <ListBox x:Name="listOfEmployeesByTeamlead"  Height="550" Width="200" HorizontalAlignment="Right"  >
             <!--ItemsSource="{Binding null}"-->
             <ListBox.ItemTemplate>
                 <DataTemplate >
@@ -37,5 +37,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <ComboBox x:Name="teamleaders" HorizontalAlignment="Left" Margin="256,40,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>
