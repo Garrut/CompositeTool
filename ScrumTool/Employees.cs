@@ -33,7 +33,7 @@ namespace ScrumTool
 
         public static void RemoveEmployeeFromList(IEmployee employee)
         {
-            throw new NotImplementedException();
+            AllEmployees.Remove(employee);
         }
     }
 }

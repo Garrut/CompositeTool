@@ -32,14 +32,14 @@ namespace ScrumTool
         {
             InitializeComponent();       
 
-            IEmployee Henk = new SoftwareEngineer("Henk", 54);
-            IEmployee Gerard = new SoftwareEngineer("Gerard", 30);
-            IEmployee Peter = new SoftwareEngineer("Peter", 28);
-            IEmployee Pieter = new SoftwareArchitect("Pieter", 43);
-            Pieter = new TeamLead(Pieter);
-            
+            SoftwareEngineer Henk = new SoftwareEngineer("Henk", 54);
+            SoftwareEngineer Gerard = new SoftwareEngineer("Gerard", 30);
+            SoftwareEngineer Peter = new SoftwareEngineer("Peter", 28);
+            SoftwareArchitect Pieter = new SoftwareArchitect("Pieter", 43);
+            TeamLead Jan = new TeamLead(new SoftwareArchitect("Jan", 50));
+            Jan.Add(Gerard);
 
-            
+            teamleaders.ItemsSource = AllEmployeeList.Where(x => x.GetType() == typeof(TeamLead));
             listOfEmployees.ItemsSource = AllEmployeeList;
         }
 
