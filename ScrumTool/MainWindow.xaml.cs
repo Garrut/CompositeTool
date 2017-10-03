@@ -1,6 +1,7 @@
 ﻿using ScrumTool.Composite;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,27 +22,49 @@ namespace ScrumTool
     /// </summary>
     public partial class MainWindow : Window
     {
+        TeamLead lead = new TeamLead("jaap");
         public MainWindow()
         {
             InitializeComponent();
 
-            
+            ObservableCollection<IEmployee> AllEmployeeList = new ObservableCollection<IEmployee>();
             SoftwareArchitect arc = new SoftwareArchitect("henk");
             SoftwareEngineer sof = new SoftwareEngineer("arjen");
             SoftwareArchitect arc1 = new SoftwareArchitect("shenk");
             SoftwareArchitect arc2 = new SoftwareArchitect("shenki");
             SoftwareEngineer sof1 = new SoftwareEngineer("arjan");
             SoftwareEngineer sof2 = new SoftwareEngineer("arjun");
-            TeamLead lead = new TeamLead("jaap");
+           
 
+            AllEmployeeList.Add(arc);
+            AllEmployeeList.Add(arc1);
+            AllEmployeeList.Add(arc2);
+            AllEmployeeList.Add(sof);
+            AllEmployeeList.Add(sof1);
+            AllEmployeeList.Add(sof2);
+            AllEmployeeList.Add(lead);
             lead.Add(sof);
             lead.Add(arc);
-            listOfEmployeesByTeamlead = lead.employeeList;
-            //listOfEmployees.ItemsSource = lead.employeeList;
+           
+            listOfEmployees.ItemsSource = AllEmployeeList;
             
 
         }
 
+        private void listOfEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Get the currently selected item in the ListBox.
+            IEmployee curItem = (IEmployee)listOfEmployees.SelectedItem;
+            if(curItem.jobRole == "Team leader")
+            {
+                listOfEmployeesByTeamlead.ItemsSource = lead.employeeList;
+            }
+            else
+            {
+                listOfEmployeesByTeamlead.ItemsSource = null;
+            }
 
+          
+        }
     }
 }

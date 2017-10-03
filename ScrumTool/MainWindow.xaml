@@ -8,7 +8,7 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
 
-        <ListBox x:Name="listOfEmployees"  Height="350" Width="200" HorizontalAlignment="Left"  ><!--ItemsSource="{Binding null}"-->
+        <ListBox x:Name="listOfEmployees"  Height="350" Width="200" HorizontalAlignment="Left" SelectionChanged="listOfEmployees_SelectionChanged" >
             <ListBox.ItemTemplate>
                 <DataTemplate >
                     <StackPanel Orientation="Horizontal">
