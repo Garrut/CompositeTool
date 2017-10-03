@@ -38,6 +38,6 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <Button x:Name="addToSelectedTeamleader" Content="Add to teamleader" HorizontalAlignment="Left" Margin="442,40,0,0" VerticalAlignment="Top" Width="114" Height="22"/>
-        <ComboBox x:Name="teamleaders" HorizontalAlignment="Left" Margin="256,40,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="teamleaders_SelectionChanged"/>
+        <ComboBox x:Name="teamleaders" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="256,40,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

@@ -25,22 +25,21 @@ namespace ScrumTool
     public partial class MainWindow : Window
     {
         ObservableCollection<IEmployee> AllEmployeeList = Employees.returnEmployees();
-        ObservableCollection<TeamLead> AllTeamLeads = new ObservableCollection<TeamLead>();
         private TeamLead curItem;
         private TeamLead selectedComboItem;
-        
-        
+
         public MainWindow()
         {
-            InitializeComponent();       
+            InitializeComponent();
 
-            IEmployee Henk = new SoftwareEngineer("Henk", 54);
-            IEmployee Gerard = new SoftwareEngineer("Gerard", 30);
-            IEmployee Peter = new SoftwareEngineer("Peter", 28);
-            IEmployee Pieter = new SoftwareArchitect("Pieter", 43);
+            SoftwareEngineer Henk = new SoftwareEngineer("Henk", 54);
+            SoftwareEngineer Gerard = new SoftwareEngineer("Gerard", 30);
+            SoftwareEngineer Peter = new SoftwareEngineer("Peter", 28);
+            SoftwareArchitect Pieter = new SoftwareArchitect("Pieter", 43);
+            TeamLead Jan = new TeamLead(new SoftwareArchitect("Jan", 50));
+            Jan.Add(Gerard);
 
-            TeamLead Pieter1 = new TeamLead(Pieter);
-            Pieter1.Add(Henk);
+            teamleaders.ItemsSource = AllEmployeeList.Where(x => x.GetType() == typeof(TeamLead));
 
             listOfEmployees.ItemsSource = AllEmployeeList;
         }
@@ -52,9 +51,10 @@ namespace ScrumTool
                 curItem = (TeamLead)listOfEmployees.SelectedItem;
                 listOfEmployeesByTeamlead.ItemsSource = curItem.employeeList;
             }
-            catch (InvalidCastException ) {
+            catch (InvalidCastException)
+            {
                 listOfEmployeesByTeamlead.ItemsSource = null;
-            }          
+            }
         }
 
 

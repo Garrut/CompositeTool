@@ -12,5 +12,6 @@ namespace ScrumTool.Composite
         string Job { get;}
         int Age { get;}
         int Salary { get;}
+        int EmployeeNumber { get; }
     }
 }

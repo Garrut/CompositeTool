@@ -8,6 +8,8 @@ namespace ScrumTool.Composite
 {
     public abstract class Worker : IEmployee
     {
+        public static Random ENumberGen;
+
         AddEmployeeToList addToEmployees = new AddEmployeeToList(Employees.AddEmployee);
 
         public Worker(string name, string job, int age, int salary)
@@ -16,6 +18,7 @@ namespace ScrumTool.Composite
             this.Job = job;
             this.Age = age;
             this.Salary = salary;
+            this.EmployeeNumber = ENumberGen.Next(1, 1000);
 
             addToEmployees(this);
         }
@@ -24,5 +27,6 @@ namespace ScrumTool.Composite
         public string Job { get; set; }
         public int Age { get; set; }
         public int Salary { get; set; }
+        public int EmployeeNumber { get; set; }    
     }
 }
