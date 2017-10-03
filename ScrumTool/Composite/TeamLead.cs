@@ -10,16 +10,45 @@ namespace ScrumTool.Composite
     public class TeamLead : IEmployee
     {
         public ObservableCollection<IEmployee> employeeList = new ObservableCollection<IEmployee>();
-        public string jobRole { get; private set; }
-        public string name { get; set; }
-        public int salary { get; private set; }
+        public IEmployee Lead;
 
-        public TeamLead (string name)
+        public TeamLead(IEmployee lead)
         {
-            this.name = name;
-            this.salary = 400;
-            this.jobRole = "Team leader";
+            Lead = lead;
         }
+
+        #region Fields
+        public string Name
+        {
+            get
+            {
+                return Lead.Name;
+            }
+        }
+
+        public string Job
+        {
+            get
+            {
+                return Lead.Job;
+            }
+        }
+
+        public int Age
+        {
+            get
+            {
+                return Lead.Age;
+            }
+        }
+        public int Salary
+        {
+            get
+            {
+                return Lead.Salary;
+            }
+        }
+        #endregion
 
         public void Add(IEmployee employee)
         {
@@ -32,6 +61,5 @@ namespace ScrumTool.Composite
         }
 
 
-    
     }
 }

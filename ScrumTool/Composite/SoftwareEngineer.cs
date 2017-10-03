@@ -6,17 +6,11 @@ using System.Threading.Tasks;
 
 namespace ScrumTool.Composite
 {
-    public class SoftwareEngineer : IEmployee
+    public class SoftwareEngineer : Worker
     {
-        public string jobRole { get; set; }
-        public string name { get; set; }
-        public int salary { get; set; }
-
-        public SoftwareEngineer(string name)
+        public SoftwareEngineer(string name, int age) : base(name, "Software Engineer", age, 2800)
         {
-            this.jobRole = "Software Engineer";
-            this.salary = 320;
-            this.name = name;
+
         }
     }
 }

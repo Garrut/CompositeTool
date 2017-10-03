@@ -8,11 +8,9 @@ namespace ScrumTool.Composite
 {
     public interface IEmployee
     {
-        int salary { get; }
-        string name { get; set; }
-        string jobRole { get; }
-
-        
-
+        string Name { get; }
+        string Job { get;}
+        int Age { get;}
+        int Salary { get;}
     }
 }

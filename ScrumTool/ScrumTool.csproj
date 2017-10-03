@@ -63,6 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Composite\Worker.cs" />
     <Compile Include="Composite\IEmployee.cs" />
     <Compile Include="Composite\SoftwareArchitect.cs" />
     <Compile Include="Composite\SoftwareEngineer.cs" />

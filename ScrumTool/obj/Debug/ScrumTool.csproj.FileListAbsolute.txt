@@ -26,3 +26,17 @@ C:\Users\arjen\Documents\GitHub\CompositeTool\ScrumTool\obj\Debug\MainWindow.bam
 C:\Users\arjen\Documents\GitHub\CompositeTool\ScrumTool\obj\Debug\ScrumTool.g.resources
 C:\Users\arjen\Documents\GitHub\CompositeTool\ScrumTool\obj\Debug\ScrumTool.Properties.Resources.resources
 C:\Users\arjen\Documents\GitHub\CompositeTool\ScrumTool\obj\Debug\ScrumTool.csproj.GenerateResource.Cache
+C:\Users\lars-\Desktop\CompositeTool\ScrumTool\bin\Debug\ScrumTool.exe.config
+C:\Users\lars-\Desktop\CompositeTool\ScrumTool\bin\Debug\ScrumTool.exe
+C:\Users\lars-\Desktop\CompositeTool\ScrumTool\bin\Debug\ScrumTool.pdb
+C:\Users\lars-\Desktop\CompositeTool\ScrumTool\obj\Debug\ScrumTool.csprojResolveAssemblyReference.cache
+C:\Users\lars-\Desktop\CompositeTool\ScrumTool\obj\Debug\MainWindow.g.cs
+C:\Users\lars-\Desktop\CompositeTool\ScrumTool\obj\Debug\App.g.cs
+C:\Users\lars-\Desktop\CompositeTool\ScrumTool\obj\Debug\ScrumTool_MarkupCompile.cache
+C:\Users\lars-\Desktop\CompositeTool\ScrumTool\obj\Debug\ScrumTool_MarkupCompile.lref
+C:\Users\lars-\Desktop\CompositeTool\ScrumTool\obj\Debug\MainWindow.baml
+C:\Users\lars-\Desktop\CompositeTool\ScrumTool\obj\Debug\ScrumTool.g.resources
+C:\Users\lars-\Desktop\CompositeTool\ScrumTool\obj\Debug\ScrumTool.Properties.Resources.resources
+C:\Users\lars-\Desktop\CompositeTool\ScrumTool\obj\Debug\ScrumTool.csproj.GenerateResource.Cache
+C:\Users\lars-\Desktop\CompositeTool\ScrumTool\obj\Debug\ScrumTool.exe
+C:\Users\lars-\Desktop\CompositeTool\ScrumTool\obj\Debug\ScrumTool.pdb

@@ -22,41 +22,39 @@ namespace ScrumTool
     /// </summary>
     public partial class MainWindow : Window
     {
-        TeamLead lead = new TeamLead("jaap");
-        IEmployee curItem;
+        TeamLead lead;
+
         public MainWindow()
         {
             InitializeComponent();
 
             ObservableCollection<IEmployee> AllEmployeeList = new ObservableCollection<IEmployee>();
-            SoftwareArchitect arc = new SoftwareArchitect("henk");
-            SoftwareEngineer sof = new SoftwareEngineer("arjen");
-            SoftwareArchitect arc1 = new SoftwareArchitect("shenk");
-            SoftwareArchitect arc2 = new SoftwareArchitect("shenki");
-            SoftwareEngineer sof1 = new SoftwareEngineer("arjan");
-            SoftwareEngineer sof2 = new SoftwareEngineer("arjun");
-           
+            
+            IEmployee Henk = new SoftwareEngineer("Henk", 54);
+            IEmployee Gerard = new SoftwareEngineer("Gerard", 30);
+            IEmployee Peter = new SoftwareEngineer("Peter", 28);
+            IEmployee Pieter = new SoftwareArchitect("Pieter", 43);
 
-            AllEmployeeList.Add(arc);
-            AllEmployeeList.Add(arc1);
-            AllEmployeeList.Add(arc2);
-            AllEmployeeList.Add(sof);
-            AllEmployeeList.Add(sof1);
-            AllEmployeeList.Add(sof2);
-            AllEmployeeList.Add(lead);
-            lead.Add(sof);
-            lead.Add(arc);
+            AllEmployeeList.Add(Henk);
+            AllEmployeeList.Add(Gerard);
+            AllEmployeeList.Add(Pieter);
+            AllEmployeeList.Add(Peter);
+
+            lead = new TeamLead(Henk);
+            lead.Add(Gerard);
+            lead.Add(Henk);
+            lead.Add(Peter);
            
             listOfEmployees.ItemsSource = AllEmployeeList;
-            
-
         }
 
         private void listOfEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            IEmployee curItem;
+
             // Get the currently selected item in the ListBox.
             curItem = (IEmployee)listOfEmployees.SelectedItem;
-            if(curItem.jobRole == "Team leader")
+            if(curItem.Job  == "Team leader")
             {
                 listOfEmployeesByTeamlead.ItemsSource = lead.employeeList;
             }
