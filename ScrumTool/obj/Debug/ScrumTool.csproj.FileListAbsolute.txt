@@ -1,0 +1,14 @@
+C:\Users\arjen\Documents\GitHub\ShapeMaster\ScrumTool\bin\Debug\ScrumTool.exe.config
+C:\Users\arjen\Documents\GitHub\ShapeMaster\ScrumTool\obj\Debug\ScrumTool.csprojResolveAssemblyReference.cache
+C:\Users\arjen\Documents\GitHub\ShapeMaster\ScrumTool\obj\Debug\MainWindow.g.cs
+C:\Users\arjen\Documents\GitHub\ShapeMaster\ScrumTool\obj\Debug\App.g.cs
+C:\Users\arjen\Documents\GitHub\ShapeMaster\ScrumTool\obj\Debug\ScrumTool_MarkupCompile.cache
+C:\Users\arjen\Documents\GitHub\ShapeMaster\ScrumTool\obj\Debug\ScrumTool_MarkupCompile.lref
+C:\Users\arjen\Documents\GitHub\ShapeMaster\ScrumTool\bin\Debug\ScrumTool.exe
+C:\Users\arjen\Documents\GitHub\ShapeMaster\ScrumTool\bin\Debug\ScrumTool.pdb
+C:\Users\arjen\Documents\GitHub\ShapeMaster\ScrumTool\obj\Debug\MainWindow.baml
+C:\Users\arjen\Documents\GitHub\ShapeMaster\ScrumTool\obj\Debug\ScrumTool.g.resources
+C:\Users\arjen\Documents\GitHub\ShapeMaster\ScrumTool\obj\Debug\ScrumTool.Properties.Resources.resources
+C:\Users\arjen\Documents\GitHub\ShapeMaster\ScrumTool\obj\Debug\ScrumTool.csproj.GenerateResource.Cache
+C:\Users\arjen\Documents\GitHub\ShapeMaster\ScrumTool\obj\Debug\ScrumTool.exe
+C:\Users\arjen\Documents\GitHub\ShapeMaster\ScrumTool\obj\Debug\ScrumTool.pdb
